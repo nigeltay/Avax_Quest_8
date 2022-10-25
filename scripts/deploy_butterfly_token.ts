@@ -1,5 +1,4 @@
 import hre from "hardhat";
-import fs from "fs";
 
 async function main() {
   const ButterflyToken = await hre.ethers.getContractFactory("ButterflyToken");
@@ -8,16 +7,6 @@ async function main() {
   await butterflyToken.deployed();
 
   console.log("ButterflyToken deployed to:", butterflyToken.address);
-  fs.writeFileSync(
-    "./config.js",
-    `
-  butterflyToken = "${butterflyToken.address}"
-  
-  module.exports = {
-      butterflyToken,
-  };
-  `
-  );
 }
 
 main()
