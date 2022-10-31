@@ -19,7 +19,9 @@ const config: HardhatUserConfig = {
     avalanche_fuji: {
       url: "https://api.avax-test.network/ext/bc/C/rpc",
 
-      accounts: [`0x${PRIVATE_KEY}`],
+      accounts: {
+        mnemonic: PRIVATE_KEY,
+      },
     },
   },
 };
